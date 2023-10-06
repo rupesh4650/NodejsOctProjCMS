@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Website</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apply some basic styles to the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Style for the navigation links */
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        /* Container for the cards */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Style for individual cards */
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+        }
+
+        /* Style for card titles */
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for card subtitles */
+        .card h3 {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Style for card descriptions */
+        .card p {
+            font-size: 16px;
+            color: #777;
+        }
+       .navbar h1{ 
+            line-height: 75px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="navbar">
+    <header>
+        <h1>CMS</h1>
+        <nav> 
+        <a href="/createblog">Add Blog</a>
+        </nav> 
+    </header>   
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <h2>Card 1</h2>
+            <h3>Subtitle 1</h3>
+            <p>Description for Card 1 goes here.</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 2</h2>
+            <h3>Subtitle 2</h3>
+            <p>Description for Card 2 goes here.</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 3</h2>
+            <h3>Subtitle 3</h3>
+            <p>Description for Card 3 goes here.</p>
+        </div>
+    </div>
+</body>
+</html>
