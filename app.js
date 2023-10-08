@@ -1,8 +1,13 @@
 const express = require('express')
 const app = express()
 
+//connection database
+require("./model/index")
+
 //set view engins as ejs
 app.set("view engine","ejs")
+
+
 
 //form bata data aai rahya xa paese gae or handle gar
 app.use(express.json())
