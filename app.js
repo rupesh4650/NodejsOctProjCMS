@@ -1,4 +1,5 @@
 const express = require('express')
+const { blogs } = require('./model/index')
 const app = express()
 
 //connection database
@@ -24,8 +25,23 @@ app.get("/createblog",(req,res)=>{
 })
 
 //create blog post
-app.post("/createblog",(req,res)=>{
-    console.log(req.body)
+app.post("/createblog",async(req,res)=>{
+        console.log(req.body)
+//first approach
+const title=req.body.title
+const subTitle=req.body.subtitle
+const description=req.body.description
+
+//second approach
+//const{title,subTitle,description}=req.body
+
+//database ma halnu paro,database sanga kehi operation garda await halnu parxa
+//aagadi,await halepaxi mathi async halnu parne hunxa
+await blogs.create({
+    title:title,
+    subTitle:subTitle,
+    description:description
+})
     res.send("Form submitted successfully")
 })
 

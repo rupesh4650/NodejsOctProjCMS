@@ -1,6 +1,7 @@
-const dbConfig = require("../config/dbConfig");
+const dbConfig = require("../config/dbconfig");
 const { Sequelize, DataTypes } = require("sequelize");
 
+//la sequelize yo data haru lag ani database sanga connect garna khoj
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
