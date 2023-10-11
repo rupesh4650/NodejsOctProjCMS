@@ -47,12 +47,37 @@ await blogs.create({
     subTitle:subTitle,
     description:description
 })
-    res.send("Form submitted successfully")
+    res.redirect("/")
 })
 
 //for single Blog
-app.get("/single/:id",(req,res)=>{
-    res.render("singleblog.ejs")
+app.get("/single/:id",async(req,res)=>{
+    const id=req.params.id
+    //second approach
+    //const {id}=req.params
+
+    //id ko data magnu/find garnu paro hamro table bata
+   const blog = await blogs.findAll({
+        where:{
+            id:id
+        }
+        
+    })
+    //const blogs= await blogs.findByPk(id)
+    
+    res.render("singleblog",{blog:blog})
+})
+
+//delete page
+app.get("/delete/:id",async(req,res)=>{
+    const id=req.params.id
+    //blogs vsnney table bata tyo id ko delete gar bhaneko yaha
+    await blogs.destroy({
+        where:{
+            id:id
+        }
+    })
+    res.redirect("/")
 })
 
 app.listen(3000,(req,res)=>{

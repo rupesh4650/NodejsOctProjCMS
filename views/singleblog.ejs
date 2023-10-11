@@ -47,28 +47,15 @@
   </header>
   
   <article>
-    <h2>title</h2>
-    <p>Exercise is an essential part of a healthy lifestyle. Regular physical activity brings a wide range of benefits for your body and mind. In this article, we'll explore the various advantages of incorporating exercise into your daily routine.</p>
-    
-    <h2> subTitle:Physical Benefits</h2>
-    <p>Regular exercise can lead to numerous physical benefits, including:</p>
-    <ul>
-      <li>Improved cardiovascular health</li>
-      <li>Weight management</li>
-      <li>Increased muscle strength</li>
-      <li>Enhanced flexibility</li>
-    </ul>
-    
-    <h2>subTitle:Mental and Emotional Benefits</h2>
-    <p>Exercise isn't just about physical health; it also has a positive impact on your mental and emotional well-being:</p>
-    <ul>
-      <li>Reduced stress and anxiety</li>
-      <li>Elevated mood and happiness</li>
-      <li>Improved cognitive function</li>
-    </ul>
-    
-    <h2>Conclusion</h2>
-    <p>Incorporating regular exercise into your life is a decision that can yield numerous benefits for both your body and mind. It's never too late to start, so get moving and enjoy the positive changes it brings to your life!</p>
+    <div class="container">
+        <h2><%-blog[0].title %></h2>
+        <h2> <%-blog[0].subTitle %></h2>
+        <h3><%-blog[0].description %></h3>
+    </div>
+    <div class="post-footer">
+        published on <%-blog[0].createdAt.toISOString().slice(0,10) %>
+    </div>
+    <button><a href="/delete/<%-blog[0].id %>">Delete</a></button>
   </article>
 </body>
 </html>
