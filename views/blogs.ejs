@@ -37,7 +37,7 @@
         }
 
         /* Container for the cards */
-        .card-container {
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -53,12 +53,14 @@
             margin: 20px;
             padding: 20px;
             width: 300px;
+            
         }
 
         /* Style for card titles */
         .card h2 {
             font-size: 24px;
             margin-bottom: 10px;
+            justify-content:center;
         }
 
         /* Style for card subtitles */
@@ -66,16 +68,22 @@
             font-size: 18px;
             color: #555;
             margin-bottom: 10px;
+            justify-content:center;
         }
 
         /* Style for card descriptions */
         .card p {
             font-size: 16px;
             color: #777;
+            justify-content:center;
         }
        .navbar h1{ 
             line-height: 75px;
         }
+        .empty h1{
+            justify-content: center;
+        }
+        
     </style>
 </head>
 <body>
@@ -89,24 +97,25 @@
     </header>   
     </div>
 
-    <div class="card-container">
-        <div class="card">
-            <h2>Card 1</h2>
-            <h3>Subtitle 1</h3>
-            <p>Description for Card 1 goes here.</p>
-        </div>
+   
+    <div class="container">
+        <% if(blogs.length==0){ %>
+        
+            <h1>No Blogs</h1>
+        
+        
+<%    }else{ %>
 
+        <% blogs.forEach((blog)=>{ %>
         <div class="card">
-            <h2>Card 2</h2>
-            <h3>Subtitle 2</h3>
-            <p>Description for Card 2 goes here.</p>
+            <h2><%- blog.title %></h2>
+            <h3><%- blog.subTitle %></h3>
+            <p><%- blog.description %></p>
+            <a href="/single/<%-blog.id %>">Read more</a>
         </div>
-
-        <div class="card">
-            <h2>Card 3</h2>
-            <h3>Subtitle 3</h3>
-            <p>Description for Card 3 goes here.</p>
-        </div>
+    <%       }) %>
+<% } %>
+       
     </div>
 </body>
 </html>

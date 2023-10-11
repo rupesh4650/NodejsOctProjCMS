@@ -15,8 +15,13 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 //all blogs
-app.get("/",(req,res)=>{
-    res.render("blogs")
+app.get("/",async(req,res)=>{
+    //blogs vanne table bata vaye jati sabai data dey vaneko
+    const allblogs=await blogs.findAll()
+    console.log(allblogs)
+
+    //blogs vanne key/name ma allblogs/data pass gareko ejs file lai
+    res.render('blogs',{blogs:allblogs})
 })
 
 //create blog
@@ -45,6 +50,10 @@ await blogs.create({
     res.send("Form submitted successfully")
 })
 
+//for single Blog
+app.get("/single/:id",(req,res)=>{
+    res.render("singleblog.ejs")
+})
 
 app.listen(3000,(req,res)=>{
     console.log("nodejs project has been running on port 3000")
