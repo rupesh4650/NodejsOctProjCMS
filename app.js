@@ -80,6 +80,36 @@ app.get("/delete/:id",async(req,res)=>{
     res.redirect("/")
 })
 
+//EDIT BLOG
+app.get("/edit/:id",async(req,res)=>{
+    const id=req.params.id
+    //find blog of what id
+    const blog= await blogs.findAll({
+        where:{
+            id:id
+        }
+
+    })
+    res.render("editblog",{blog:blog})
+})
+app.post("/editblog/:id",async(req,res)=>{
+    const id=req.params.id
+    const title=req.body.title
+    const subTitle=req.body.subTitle
+    const description=req.body.description
+
+    await blogs.update({
+        title:title,
+        subTitle:subTitle,
+        description:description
+    },{
+        where:{
+            id:id
+        }
+    })
+    res.redirect("/single/"+id)
+})
+
 app.listen(3000,(req,res)=>{
     console.log("nodejs project has been running on port 3000")
 })
