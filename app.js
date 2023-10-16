@@ -8,7 +8,8 @@ require("./model/index")
 //set view engins as ejs
 app.set("view engine","ejs")
 
-
+//nodejs lai file acess garna de bhaneko yo code le
+app.use(express.static("public/"))
 
 //form bata data aai rahya xa paese gae or handle gar
 app.use(express.json())
@@ -109,6 +110,8 @@ app.post("/editblog/:id",async(req,res)=>{
     })
     res.redirect("/single/"+id)
 })
+
+
 
 app.listen(3000,(req,res)=>{
     console.log("nodejs project has been running on port 3000")
