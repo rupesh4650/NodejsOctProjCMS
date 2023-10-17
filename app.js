@@ -10,10 +10,27 @@ app.set("view engine","ejs")
 
 //nodejs lai file acess garna de bhaneko yo code le
 app.use(express.static("public/"))
+app.use(express.static("hello/"))
 
 //form bata data aai rahya xa paese gae or handle gar
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+
+app.get("/portfolio",(req,res)=>{
+    const mydata=[
+        {
+            name:"Rupesh Yadav",
+            whoami:"student"
+        }
+        
+        
+    ]
+    res.render("index.ejs",{mydata:mydata})
+})
+
+app.get("/components",(req,res)=>{
+    res.render("components")
+})
 
 //all blogs
 app.get("/",async(req,res)=>{

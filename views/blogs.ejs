@@ -8,17 +8,11 @@
 </head>
 <body>
     
-    <div class="navbar">
-    <header>
-        <h1>CMS</h1>
-        <nav> 
-        <a href="/createblog">Add Blog</a>
-        </nav> 
-    </header>   
-    </div>
+    <%-include("navbar") %>
 
    
     <div class="container">
+        <img src="images/tapshare.jpeg">
         <% if(blogs.length==0){ %>
         
             <h1>No Blogs</h1>
